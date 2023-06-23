@@ -3,14 +3,17 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
+        System.out.println("hello");
+
         // Création du cinéma
         Cinema cinema = new Cinema("Cineplex", "123 Rue de Cinema");
+
         System.out.println("Cinema created: " + cinema);
 
-        // Création des place
+        // Création des places
         List<String> places = new ArrayList<>();
         String[] rows = {"A", "B", "C", "D", "E", "F", "G"};
-        for(String row : rows) {
+        for (String row : rows) {
             for(int i = 1; i <= 10; i++) {
                 places.add(row + i);
             }
@@ -36,21 +39,21 @@ public class Main {
 
         // Création des séances
         Seance seance1 = new Seance(
+                new Date(2023, 6,24),
+                new Time(19, 55, 00),
                 film1,
-                new Date(2023, 6,24),
-                new Time(19, 55, 00),
                 salle1
-        );
+                );
         Seance seance2 = new Seance(
-                film2,
                 new Date(2023, 6,24),
                 new Time(19, 55, 00),
+                film2,
                 salle2
-        );
+                );
         System.out.println("Seances created: " + seance1 + ", " + seance2);
 
         // Programmation des séances au cinéma
-        cinema.scheduleSeance(film1, new Date(), new Time(), salle1);
+        cinema.scheduleSeance(film1, new Date(), new Time() , salle1);
         cinema.scheduleSeance(film2, new Date(), new Time(), salle2);
         System.out.println("Seances scheduled in the cinema.");
 
@@ -95,3 +98,4 @@ public class Main {
 
     }
 }
+
